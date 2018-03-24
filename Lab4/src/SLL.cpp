@@ -17,16 +17,12 @@ SLL::SLL() {
 }
 
 SLL::~SLL() {
-	delete first;
-	delete last;
-	delete p2;
-
 }
 
 void SLL::printSLL() {
 	SNode *tmp = first;
 	for(int i = 0; i < size; i++){
-		cout << tmp << "->";
+		cout << tmp->word << "->";
 		tmp = tmp->next;
 	}
 	cout << endl;
@@ -36,7 +32,33 @@ void SLL::priorityInsert(string s, int p) {
 	if(p == 1){
 		addAtFront(s,p);
 	}else if(p == 2){
-		addAtP2(s,p);
+		if(p2 == NULL){
+			if(size == 0){
+				addFirst(s,p);
+			}else{
+				if(first->priority == 3){
+					addAtFront(s,p);
+				}else{
+					SNode *tmp = first;
+					SNode *newNode = new SNode(s,p);
+					while(p2 == NULL){
+						if(tmp == last){
+							push(s,p);
+						}else{
+							if(tmp->next->priority == 3){
+								newNode->next = tmp->next;
+								tmp->next = newNode;
+								p2 = newNode;
+								size++;
+							}
+						}
+						tmp = tmp->next;
+					}
+				}
+			}
+		}else{
+			addAtP2(s,p);
+		}
 	}else{
 		push(s,p);
 	}
@@ -51,6 +73,9 @@ void SLL::push(string s, int p) {
 		last = newNode;
 		size++;
 	}
+	if(p==2){
+		p2 = last;
+	}
 }
 
 void SLL::addAtFront(string s, int p) {
@@ -62,6 +87,9 @@ void SLL::addAtFront(string s, int p) {
 		first = newNode;
 		size++;
 	}
+	if(p==2){
+		p2 = first;
+	}
 }
 
 void SLL::addFirst(string s, int p) {
@@ -69,19 +97,26 @@ void SLL::addFirst(string s, int p) {
 	first = newNode;
 	last = newNode;
 	size++;
+	if(p==2){
+		p2 = newNode;
+	}
 }
 
 void SLL::addAtP2(string s, int p) {
 	SNode *newNode = new SNode(s,p);
-	if(size==0){
-		addFirst(s,p);
+	if(p2 == last){
+		p2->next = newNode;
 		p2 = newNode;
-	}
-	else{
+		size++;
+		last = p2;
+	}else{
 		newNode->next = p2->next;
 		p2->next = newNode;
+		p2 = newNode;
 		size++;
 	}
+
+
 }
 
 int SLL::removeAll(string w) {
@@ -99,7 +134,7 @@ int SLL::removeAll(string w) {
 		if(tmp2->word == w){
 			if(tmp2 == last){
 				pop();
-				tmp2 == NULL;
+				tmp2 = NULL;
 			}
 			else{
 				tmp1->next = tmp2->next;

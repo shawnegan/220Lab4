@@ -36,6 +36,7 @@ void WebTopic::getPriority(string line) {
 	cout << "Curr Priority: " << currpriority << endl;
  }
 void WebTopic::printPage() {
+	//TODO : fix (p2 at end)
 	SNode *tmp = wordlist->first;
 	for(int i = 0; i < wordlist->size; i++){
 		if(i == 0){
@@ -50,7 +51,7 @@ void WebTopic::printPage() {
 			cout << endl;
 			cout << "Priority 3:" << endl;
 		}
-
+		tmp = tmp->next;
 	}
 }
 void WebTopic::readFile() {

@@ -1,78 +1,73 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-<title>A very simple webpage</title>
-<basefont size=4>
-</head>
-
-<body bgcolor=FFFFFF>
-
-<h1>A very simple webpage. This is an "h1" level header.</h1>
-
-<h2>This is a level h2 header.</h2>
-
-<h6>This is a level h6 header.  Pretty small!</h6>
-
-<p>This is a standard paragraph.</p>
-
-<p align=center>Now I've aligned it in the center of the screen.</p>
-
-<p align=right>Now aligned to the right</p>
-
-<p><b>Bold text</b></p>
-
-<p><strong>Strongly emphasized text</strong>  Can you tell the difference vs. bold?</p>
-
-<p><i>Italics</i></p>
-
-<p><em>Emphasized text</em>  Just like Italics!</p>
-
-<p>Here is a pretty picture: <img src=example/prettypicture.jpg alt="Pretty Picture"></p>
-
-<p>Same thing, aligned differently to the paragraph: <img align=top src=example/prettypicture.jpg alt="Pretty Picture"></p>
-
-<hr>
-
-<h2>How about a nice ordered list!</h2>
-<ol>
-  <li>This little piggy went to market
-  <li>This little piggy went to SB228 class
-  <li>This little piggy went to an expensive restaurant in Downtown Palo Alto
-  <li>This little piggy ate too much at Indian Buffet.
-  <li>This little piggy got lost
-</ol>
-
-<h2>Unordered list</h2>
-<ul>
-  <li>First element
-  <li>Second element
-  <li>Third element
-</ul>
-
-<hr>
-
-<h2>Nested Lists!</h2>
-<ul>
-  <li>Things to to today:
-    <ol>
-      <li>Walk the dog
-      <li>Feed the cat
-      <li>Mow the lawn
-    </ol>
-  <li>Things to do tomorrow:
-    <ol>
-      <li>Lunch with mom
-      <li>Feed the hamster
-      <li>Clean kitchen
-    </ol>
-</ul>
-
-<p>And finally, how about some <a href=http://www.yahoo.com/>Links?</a></p>
-
-<p>Or let's just link to <a href=../../index.html>another page on this server</a></p>
-
-<p>Remember, you can view the HTMl code from this or any other page by using the "View Page Source" command of your browser.</p>
-
-</body>
-
+     <head>
+         <meta charset="utf-8">
+         <title> Dogs and Puppies
+         </title>
+		 <link rel = "stylesheet" href = "style1a.css">
+     </head>
+     <body>
+	 
+	 <div id = "content">
+	 
+		 <h1> Dog and Puppy Care </h1>
+		 
+		 <div id = "sidebar">
+			<h2>Animal Welfare Organizations </h2>
+			<h2>Links Section </h2>
+			 <p>
+			 <img src = "Images/dogcat.jpg" width = "250" height = "120" ><br>
+			 <a href = "http://www.spca.org"> SPCA </a> <br>
+			 <a href = "http://www.espn.com"> ESPN </a> <br>
+			 <br>
+			 </p>
+			 <p>Check regularly for more relevant links </p>
+			 <h2> Animal Welfare Donation Section </h2>
+			<p> Make sure you donate to your local animal shelter <br>
+			<a href = "http://www.awionline.org"> Animal Welfare Institute </a><br>
+			<a href = "http://www.americanhumane.org"> American Humane Association </a><br>
+			<a href = "http://www.hfa.org"> Humane Farming Association</a><br></p>
+		</div> <!--sidebar -->
+		
+		<div class = "dogsec">
+			<h3> Dogs</h3>
+			<p><img src = "Images/cute7.jpg" width = "145" height = "125"
+			alt = "cute picture of a newborn kitten" >
+			</p>
+			<p>
+			A dog can be a wonderful addition to any home, but whether you're 
+			an experienced pet parent or a first-time adopter, it's important 
+			to keep your canine companion's health and happiness a top priority. 
+			Below are some useful tips for all dog parents.
+			</p>
+			<h3>Feeding your Dog </h3>
+			<p>Premium-quality dry food provides a well-balanced diet for adult 
+			dogs and may be mixed with water, broth or canned food. Your dog may 
+			enjoy cottage cheese, cooked egg or fruits and vegetables, but these 
+			additions should not total more than ten percent of his daily food 
+			intake.
+			</p>
+			<h3>Exercise</h3>
+			<p> Exercise your dog regularly to keep your dog stimulated and healthy,
+			and to keep their weight in check.  Different breeds need different 
+			levels of exercise. Before adopting a dog, research the energy level of
+			the breed to ensure you will be able to provide the proper level of 
+			exercise.
+		</div>
+		<div class = "dogsec">
+			<h2>Puppies</h2>
+			<p> <img src = "Images/puppy-in-hand.jpeg" width = "125" height = "94"
+			alt = "cute picture of a puppy in someone's hands" id = "pic2"><br>Our newest puppy</p>
+			<h3>Puppy Care</h3>
+			<p>
+			Puppies are adorable, and quite tempting when one is looking to adopt.
+			However, keep in mind that for the first year the amount of care a 
+			puppy requires is quite high, almost to the level of a toddler.  If you
+			think you will be unable to provide that level of care, please consider
+			adopting an older dog.
+			</p>
+		</div> 
+		<p id = "bottom"> Copyright DY All rights reserved </p>	 
+	</div> <!--content -->
+    </body>
 </html>

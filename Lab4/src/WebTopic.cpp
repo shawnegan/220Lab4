@@ -22,8 +22,8 @@ WebTopic::WebTopic(string filename) {
 	currpriority = 3;
 }
 void WebTopic::getPriority(string line) {
-	cout << endl;
-	cout << line << endl;
+	//cout << endl;
+	//cout << line << endl;
 	if (line.compare(0,5,"title") == 0 || line.compare(0,2,"h1")==0 || line.compare(0,2, "h2")==0) {
 		currpriority = 1;
 	}
@@ -33,23 +33,22 @@ void WebTopic::getPriority(string line) {
 	else {
 		currpriority = 3;
 	}
-	cout << "Curr Priority: " << currpriority << endl;
+	//cout << "Curr Priority: " << currpriority << endl;
  }
 void WebTopic::printPage() {
-	//TODO : fix (p2 at end)
 	SNode *tmp = wordlist->first;
 	for(int i = 0; i < wordlist->size; i++){
 		if(i == 0){
 			cout << "Priority 1:" << endl;
 		}
+		cout << tmp->word << ": " << tmp->priority;
+		if(tmp->priority == 1 && tmp->next->priority == 2){
+			cout << endl;
+			cout << "Priority 2:";
+		}
 		if(tmp == wordlist->p2){
 			cout << endl;
 			cout << "Priority 2:" << endl;
-		}
-		cout << tmp->word << ": " << tmp->priority;
-		if(tmp->priority == 2 && tmp->next->priority == 3){
-			cout << endl;
-			cout << "Priority 3:" << endl;
 		}
 		tmp = tmp->next;
 	}
@@ -58,18 +57,20 @@ void WebTopic::readFile() {
 	ifstream infile(file.c_str(),ios::in);     // open file
 	string line = "";
 	char c;
+	//TODO : NOT GETTING INTO THIS WHILE LOOP
 	while (infile.get(c)) {
+		cout << "got into infile loop" << endl;
 		if (c == '<') {
 			if (!line.empty()) {
-				cout << "Line outside of tag: "<<endl;
-				cout << line << endl << endl;
+				//cout << "Line outside of tag: "<<endl;
+				//cout << line << endl << endl;
 				parseString(line);
 				line = "";
 			}
 		}
 		else if (c == '>') {
-			cout << "Line inside of tag: "<<endl;
-			cout << line << endl << endl;
+			//cout << "Line inside of tag: "<<endl;
+			//cout << line << endl << endl;
 			getPriority(line);
 			line = "";
 		}
@@ -107,6 +108,7 @@ void WebTopic::parseString(string line) {
 	while (token != NULL) {
 		string s = stripSpace(token);
 		if (s != "") {
+			cout << "got to insert" << endl;
 			wordlist->priorityInsert(s,currpriority);
 		}
 		token = strtok(NULL, " ");
